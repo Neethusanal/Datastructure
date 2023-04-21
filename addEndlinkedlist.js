@@ -10,6 +10,7 @@ class Linkedlist{
     {
         this.head=null;
         this.tail=null;
+        this.length=0
     }
     addFirst(value)
     {
@@ -22,6 +23,7 @@ class Linkedlist{
         }
         node.next=this.head
         this.head=node
+        this.length++
     }
 
 
@@ -36,6 +38,68 @@ class Linkedlist{
         }
         this.tail.next=node
         this.tail=node
+        this.length++
+    }
+    insert(value,index)
+    {
+        if(index==0)
+        {
+            this.addFirst(value)
+            return
+        }
+        const node =new Node(value)
+        let current=this.head
+        let i=0
+        while(current)
+        {
+            if(i==index-1)
+            {
+                node.next=current.next
+                current.next=node
+                if(node.next==null)
+                {
+                    this.tail=node
+                }
+                this.length++
+                return
+            }current=current.next
+            i++
+        } 
+        console.log("index out of bounds")
+    }
+
+
+    remove(value)
+    {
+        if(!this.head)
+        {
+            return
+        }
+        if (this.head.value==value)
+        {
+            this.head=this.head.next
+            if(this.head==null)
+            {
+                this.tail=null
+            }this.size--
+            return
+        }
+        let current=this.head
+        while(current.next)
+        {
+            if(current.next.value==value)
+            {
+                current.next=current.next.next
+                if(current.next==null)
+                {
+                    this.tail=current
+                }
+               
+            this.size--
+            return
+        }
+        current=current.next
+    }
     }
 
    
@@ -48,6 +112,7 @@ class Linkedlist{
     current = current.next;
   }
   console.log(data.join(" -> "));
+  console.log(this.length)
 }
 
  }
@@ -58,7 +123,8 @@ class Linkedlist{
     list.addFirst(88)
     list.addEnd(111)
     
-    list.print()
-   
+  
+ 
+ 
     list.print()
 
