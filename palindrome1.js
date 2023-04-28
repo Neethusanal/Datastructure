@@ -2,7 +2,7 @@ function palindrome(string)
 {
     for(i=0;i<string.length;i++)
     {
-        if(string[0]==string[string.length-1])
+        if(string[i]==string[string.length-1])
         {
             return `${string} is palindrome`
         }
@@ -12,6 +12,7 @@ function palindrome(string)
     }
 }
 }
-const string="haiii"
+//const string="haiii"
+const string="MalayalaM"
 const result=palindrome(string)
 console.log(result)

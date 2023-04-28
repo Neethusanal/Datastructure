@@ -66,33 +66,46 @@ insert(value,index)
         i++
     }
 }
-removeIndex(index) {
-    if (index < 0 || index >= this.size) {
-      return;
+removeFromIndex(index) {
+    if (!this.head) {
+      return undefined;
     }
+  
     if (index === 0) {
       this.head = this.head.next;
-      if (!this.head) {
-        this.tail = null;
-      }
-      this.size--;
       return;
     }
+  
     let current = this.head;
     let i = 0;
     while (current.next) {
       if (i === index - 1) {
         current.next = current.next.next;
-        if (!current.next) {
-          this.tail = current;
-        }
-        this.size--;
         return;
       }
       current = current.next;
       i++;
     }
   }
+
+  removeLast() {
+    if (!this.head) {
+      return;
+    }
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+      this.size--;
+      return;
+    }
+    let current = this.head;
+    while (current.next !== this.tail) {
+      current = current.next;
+    }
+    current.next = null;
+    this.tail = current;
+    this.size--;
+}
   
 print()
 {
@@ -113,5 +126,6 @@ list.addFirst(22)
 list.addFirst(33)
 list.addEnd(66)
 list.insert(77,2)
-list.removeIndex(4)
-list.print()
+list.removeFromIndex(0)
+ list.removeLast()
+list.print();

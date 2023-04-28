@@ -68,6 +68,8 @@ class Linkedlist{
     }
 
     
+
+    
     print()
     {
         const data=[]
@@ -80,7 +82,7 @@ class Linkedlist{
         console.log(data.join("->"))
         console.log(this.size)
     }
-
+    
     }
    
 
@@ -88,5 +90,5 @@ class Linkedlist{
 const list=new Linkedlist()
 list.addFirst(10)
 list.addEnd(20)
-list.insert(22,1)
+list.insert(22,2)
 list.print()

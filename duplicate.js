@@ -104,16 +104,31 @@ class Linkedlist{
       
         while (current !== null) { // Iterate through the linked list
           if (duplicates.includes(current.value)) { // If the current value is already in the duplicates array
-            console.log("Duplicate found:", current.value); // Print the duplicate value
+            console.log("Duplicate found:", current.value);
+             // Print the duplicate value
           } else { // If the current value is not yet in the duplicates array
             duplicates.push(current.value); // Add it to the duplicates array
           }
           current = current.next; // Move to the next node in the linked list
         }
       }
+
+      printMiddle() {
+        let slow = this.head;
+        let fast = this.head;
+    
+        while (fast && fast.next) {
+          slow = slow.next;
+          fast = fast.next.next;
+        }
+    
+        console.log("Middle element:", slow.value);
+      }
+    
+    
      print()
      {
-        const data=""
+        const data=[]
         let current=this.head
         while(current)
         {
@@ -123,15 +138,16 @@ class Linkedlist{
         console.log(data.join ("->"))
         console.log(this.size)
      }
-}
+    }
 const list=new Linkedlist()
 list.addFirst(10)
 list.addFirst(20)
 list.addFirst(20)
 list.addFirst(33)
-list.addEnd(33)
+
 list.insert(55,2)
 list.print()
 // list.remove(33)
 list.find_duplicates()
 list.print()
+list.printMiddle()
