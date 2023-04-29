@@ -1,6 +1,7 @@
 function stringreverse(string)
 {
     let newstr=""
+    console.log(string.length)
     for(let i=string.length-1;i>=0;i--)
     {
         newstr+= string[i]

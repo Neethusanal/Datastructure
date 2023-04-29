@@ -15,3 +15,4 @@ console.log(arr)
 let text="this is a random text"
 let wordarray=text.split("s");
 console.log(wordarray)
+console.log(Math.floor(5/2))
