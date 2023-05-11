@@ -87,7 +87,7 @@ class Node{
       
   }
   
-  const bst=new BinarysearchTree()
+  const bst = new BinarysearchTree()
   console.log(bst.isEmpty())
   bst.insert(10)
   bst.insert(5)
