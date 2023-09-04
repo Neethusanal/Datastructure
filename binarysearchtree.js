@@ -93,6 +93,25 @@ class Node{
       }
       return true;
     }
+  findSecondLargest() {
+    if (!this.root) {
+      console.log("The tree is empty");
+      return null;
+    }
+
+    let current = this.root;
+    let secondLargest = null;
+
+    while (current.right) {
+      if (!current.right.right && !current.right.left) {
+        secondLargest = current.value;
+        break;
+      }
+      current = current.right;
+    }
+
+    return secondLargest;
+  }
     
       
   }
@@ -102,6 +121,8 @@ class Node{
   bst.insert(10)
   bst.insert(5)
   bst.insert(15)
+  bst.insert(18)
+  bst.insert(12)
   bst.insert(3)
   bst.insert(7)
   console.log(bst.root)
@@ -111,4 +132,5 @@ class Node{
   // bst.inorder(bst.root)
   bst.postorder(bst.root)
   console.log(bst.valid())
+  console.log("Second Largest Element:", bst.findSecondLargest());
   
