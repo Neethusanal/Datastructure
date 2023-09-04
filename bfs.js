@@ -83,7 +83,7 @@ class BinarysearchTree
         while(queue.length)
         {
             let curr=queue.shift()
-            console.log(curr.value)
+            //console.log(curr.value)
             if(curr.left)
             {
                 queue.push(curr.left)

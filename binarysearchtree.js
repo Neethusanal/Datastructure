@@ -83,6 +83,16 @@ class Node{
         
         
     }
+    valid() {
+      let value = [];
+      this.inorder(this.root, value);
+      for (let i = 0; i < value.length; i++) {
+        if (value[i] <= value[i - 1]) {
+          return false;
+        }
+      }
+      return true;
+    }
     
       
   }
@@ -94,9 +104,11 @@ class Node{
   bst.insert(15)
   bst.insert(3)
   bst.insert(7)
+  console.log(bst.root)
   console.log(bst.search(bst.root,5))
   console.log(bst.search(bst.root,20))
   // bst.preorder(bst.root)
   // bst.inorder(bst.root)
   bst.postorder(bst.root)
+  console.log(bst.valid())
   
