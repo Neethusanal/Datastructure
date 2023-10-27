@@ -56,12 +56,16 @@ class Node{
 
     preorder(root)
     {
+    
       if(root)
       {
         console.log(root.value)
+        
+        
         this.preorder(root.left)
         this.preorder(root.right)
       }
+      
     }
     inorder(root)
     {
@@ -87,12 +91,64 @@ class Node{
       let value = [];
       this.inorder(this.root, value);
       for (let i = 0; i < value.length; i++) {
+        console.log(value[i])
         if (value[i] <= value[i - 1]) {
           return false;
         }
       }
+    
+      
+    
       return true;
     }
+  
+  primenumber(){
+    let curr=this.root
+    let array=[]
+    function primecheck(root) {
+        let check=false
+        if(root==null) return null
+        let value=root.value
+        for (let i = 2; i < value; i++) {
+            if(value%i==0){
+                check=true
+                break
+            }
+        }
+        if(check==false){
+            array.push(value)
+        }
+        primecheck(root.left)
+        primecheck(root.right)
+
+    }
+    primecheck(curr)
+    return array
+    }
+    
+  
+ 
+//   isBST(root) {
+//     return this.isBSTHelper(root, -Infinity, Infinity);
+//   }
+  
+// isBSTHelper(node, min, max) {
+//     if (node === null) {
+//       // Empty node is considered as a valid BST
+//       return true;
+//     }
+  
+//     if (node.value <= min || node.value >= max) {
+//       // Node value violates the BST property
+//       return false;
+//     }
+  
+//     // Recursively validate the left and right subtrees
+//     return (
+//       this.isBSTHelper(node.left, min, node.value) &&
+//       this.isBSTHelper(node.right, node.value, max)
+//      );
+//     }
   findSecondLargest() {
     if (!this.root) {
       console.log("The tree is empty");
@@ -125,12 +181,15 @@ class Node{
   bst.insert(12)
   bst.insert(3)
   bst.insert(7)
-  console.log(bst.root)
-  console.log(bst.search(bst.root,5))
-  console.log(bst.search(bst.root,20))
+  // console.log(bst.root)
+  // console.log(bst.search(bst.root,5))
+  // console.log(bst.search(bst.root,20))
   // bst.preorder(bst.root)
   // bst.inorder(bst.root)
   bst.postorder(bst.root)
-  console.log(bst.valid())
+  console.log("LLL")
+ bst.valid()
+ console.log("kk")
+ console.log(bst.primenumber())
   console.log("Second Largest Element:", bst.findSecondLargest());
   
